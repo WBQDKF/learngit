@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <script src="js/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <script src="js/Carousel-figure.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                //获取要定位元素距离浏览器顶部的距离
+                var navH = $("#header").offset().top;
+                //滚动条事件
+                $(window).scroll(function(){
+                    //获取滚动条的滑动距离
+                    var scroH = $(this).scrollTop();
+                    //滚动条的滑动距离大于等于定位元素距离浏览器顶部的距离，就固定，反之就不固定
+                    if(scroH>=navH){
+                        $("#header").css({"position":"fixed","top":0,"left":0});
+                    }else if(scroH<navH){
+                        $("#header").css({"position":"static","margin":"0 auto"});
+                    }
+                })
+                //平滑滚动导航
+                $('#nav a,#headerlogo a,.downbtn1,.downbtn2,.downbtn3,.downbtn4,.downbtn5').bind('click',function(event){
+                    var $anchor = $(this);
+                    $('html, body').stop().animate({scrollTop: $($anchor.attr('href')).offset().top-52}, 600);
+                    event.preventDefault();
+                });
+            })
+
+        </script>
+</head>
+<body>
+    <div id="top">
+        <div id="header">
+            <div id="headerlogo">
+                <a href="#top">Resume</a>
+            </div>
+            <div id="nav">
+                <ul>
+                    <li><a href="#about" class="btn">关于我</a></li>
+                    <li><a href="#skills" class="btn">技能</a></li>
+                    <li><a href="#port"class="btn">作品</a></li>
+                    <li><a href="#contact"class="btn">联系我</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="banner">
+            <div id="photo">
+                <img src="images/diamond.jpg"/>
+            </div>
+            <div id="content">
+                <h1 class="title">王斌</h1>
+                <h2 id="sublimt">前端开发工程师</h2>
+                <p>wbqdkf@126.com</p>
+                <a class="downbtn1" href="#about"><span></span></a>
+            </div>
+        </div>
+    </div>
+    <div id="about">
+        <div class="substance">
+            <h2 class="titlePage2" ><span></span>关于我<span ></span></h2>
+            <h3 class="subhead">教育背景与实习经历</h3>
+            <div class="education1">
+                <ul>
+                    <li class="timer1">2011.09-Now</li>
+                    <li><p>南京师范大学泰州学院</p>
+                        <span>通信工程专业</span></li>
+                    </li>
+                </ul>
+            </div>
+            <div class="timeLine1">
+                <div class="timeLine2"></div>
+            </div>
+            <div class="education2">
+                <ul>
+                    <li class="timer2">
+                        2015.01-2015.04
+                    </li>
+                    <li>
+                        <p>妙味趣学技术有限公司</p>
+                        <span>负责网站前端界面实现</span>
+                    </li>
+                </ul>
+            </div>
+            <a class="downbtn2" href="#skills"><span></span></a>
+        </div>
+    </div>
+    <div id="skills">
+        <div class="substance">
+            <h2 class="titlePage3"><span ></span>技能
+                <span ></span></h2>
+            <div class="skillsclassify">
+                <ul class="language">
+                    <li>语言及框架</li>
+                    <li>HTML(5)</li>
+                    <li>CSS(3)</li>
+                    <li>JavaScript</li>
+                    <li>jQuery</li>
+                </ul>
+                <ul class="standard">
+                    <li>思想</li>
+                    <li>W3C标准</li>
+                    <li>语义化</li>
+                    <li>响应式布局</li>
+                </ul>
+                <ul class="technology">
+                    <li>技术</li>
+                    <li>ajax</li>
+                    <li>SVN</li>
+                    <li>PhotoShop</li>
+                    <li>http协议</li>
+                </ul>
+                <a class="downbtn3" href="#port"><span></span></a>
+            </div>
+        </div>
+    </div>
+    <div id="port">
+        <div class="substance">
+            <h2 class="titlePage4"><span></span>项目经验<span></span></h2>
+            <div id="automatic">
+                <div class="prev_div"></div>
+                <a class="prev" href="###">
+                    <span class="ico1"></span>
+                    <span class="ico"></span>
+                    <span class="txt"></span>
+                </a>
+                <div class="next_div"></div>
+                <a class="next" href="###">
+                    <span class="ico1"></span>
+                    <span class="ico"></span>
+                    <span class="txt"></span>
+                </a>
+                <div class="line"></div>
+                <ul>
+                    <li class="pos_0"><a><img src="images/6.png" width="100"  /></a></li>
+                    <li class="pos_1"><a><img src="images/4.png" width="270"/></a></li>
+                    <li class="pos_2"><a><img src="images/2.jpg" width="510" /></a></li>
+                    <li class="pos_3"><a><img src="images/1.png" width="680" /></a></li>
+                    <li class="pos_4"><a><img src="images/3.png" width="510" /></a></li>
+                    <li class="pos_5"><a><img src="images/5.jpg" width="270" /></a></li>
+                    <li class="pos_6"><a><img src="images/5.jpg" width="270"/></a></li>
+                </ul>
+            </div>
+            <p id="choseebtn">
+                    <input type="button" value="1"/>
+                    <input type="button" value="2"/>
+                    <input type="button" value="3"/>
+                    <input type="button" value="4"/>
+                    <input type="button" value="5"/>
+                    <input type="button" value="6"/>
+                </p>
+            <a class="downbtn4" href="#contact"><span></span></a>
+            </div>
+        </div>
+    <div id="contact">
+        <div class="substance">
+            <h2 class="titlePage5">希望能取得您的联系</h2>
+            <p class="resume">下载简历</p>
+            <span class="emailAddress"> <a href="Mailto:wbqdkf@162.com" target="_blank">wbqdkf@126.com</a></span>
+            <a class="downbtn5" href="#top"><span></span></a>
+        </div>
+        <div class="in-block"></div>
+    </div>
+</body>
+</html>
