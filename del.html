@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        window.onload = function() {
+
+            /*
+            * ParentNode.removeChild(要删除的节点);
+            * */
+
+            var oText = document.getElementById('text1');
+            var oBtn = document.getElementById('btn');
+            var oUl = document.getElementById('ul1');
+
+            oBtn.onclick = function() {
+                if (oText.value != '') {
+
+                    var oLi = document.createElement('li');
+                    //oLi.innerHTML = oText.value + ' <a href="javascript:;">删除</a>';
+
+                    oLi.innerHTML = oText.value;
+                    var oA = document.createElement('a');
+                    oA.innerHTML = '删除';
+                    oA.href = 'javascript:;';
+                    oA.onclick = function() {
+                        //alert(1);
+                        this.parentNode.parentNode.removeChild(this.parentNode);
+                    }
+                    oLi.appendChild(oA);
+
+
+                    //oUl.appendChild(oLi);
+
+                    //在标准下如果，insertBefore的第二个已有子节点并不存在，则当前的insertBefore就会用appendChild去替代实现在，在所有ie下无效，会报错
+
+                    if (oUl.children[0]) {
+                        oUl.insertBefore(oLi, oUl.children[0]);
+                    } else {
+                        oUl.appendChild(oLi);
+                    }
+
+                }
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="text1"/>
+    <input type="button" value="留言" id="btn" />
+    <ul id="ul1"></ul>
+</body>
+</html>
